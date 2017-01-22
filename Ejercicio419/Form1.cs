@@ -16,5 +16,48 @@ namespace Ejercicio419
         {
             InitializeComponent();
         }
+        double Potencia(double Base, double Intermedio)
+        {
+            double vIntermedio = Base * Intermedio;
+            return vIntermedio;
+        }
+
+        double Factorial(double i, double Intermedio)
+        {
+            Intermedio = Intermedio * i;  
+            return Intermedio;
+        }
+
+        private void btnIterativa_Click(object sender, EventArgs e)
+        {
+            double vNumM = double.Parse(txtNumM.Text);
+            double vNumN = double.Parse(txtNumN.Text);
+            double vPotParcial = 1;
+            double vFacParcial = 1;
+            for (int i = 1; i <= vNumN; i++)
+            {
+                vPotParcial = Potencia(vNumM, vPotParcial);
+                MessageBox.Show("Resultado de " + vNumM + " elevado a " + i + " = " + vPotParcial);
+                vFacParcial = Factorial(i, vFacParcial);
+                MessageBox.Show("Resultado del factorial de " + i + " = " + vFacParcial);
+            }
+            //MessageBox.Show("Resultado de " + vNumM + " elevado a " + vNumN + " = " + vPotParcial);
+            //double vValorExpo = 1;
+            //double vValorFact = 1;
+            //int vValorPotencia = Potencia(vNumM);
+            //int vValorFactorial = Factorial(v)
+            //double vValorTemp = 1;
+            //double vValorFin = 0;
+            //for (int i = 1; i <= vNumN; i++)
+            //{
+              //  vValorExpo = vValorExpo * vNumM;
+                //vValorFact = vValorExpo * i;
+                //vValorTemp = vValorExpo / vValorFact;
+                //vValorFin = vValorFin + vValorTemp;
+                //MessageBox.Show("Resultado potencia: " + vNumM + "^" + i + " es igual a " + vValorExpo + "\n" + "Resultado factorial: " + i + "!" + " es igual a " + vValorFact);
+                //MessageBox.Show("Resultado del paso " + i + ": " + vValorTemp);
+                //MessageBox.Show("Resultado final: " + vValorFin);
+            }
+
+        }
     }
-}

@@ -88,6 +88,7 @@
             this.btnIterativa.TabIndex = 5;
             this.btnIterativa.Text = "Version Iterativa";
             this.btnIterativa.UseVisualStyleBackColor = true;
+            this.btnIterativa.Click += new System.EventHandler(this.btnIterativa_Click);
             // 
             // btnRecursiva
             // 
