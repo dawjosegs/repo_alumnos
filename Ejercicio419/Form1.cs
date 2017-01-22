@@ -34,30 +34,18 @@ namespace Ejercicio419
             double vNumN = double.Parse(txtNumN.Text);
             double vPotParcial = 1;
             double vFacParcial = 1;
+            double vResultado = 0;
             for (int i = 1; i <= vNumN; i++)
             {
                 vPotParcial = Potencia(vNumM, vPotParcial);
                 MessageBox.Show("Resultado de " + vNumM + " elevado a " + i + " = " + vPotParcial);
                 vFacParcial = Factorial(i, vFacParcial);
                 MessageBox.Show("Resultado del factorial de " + i + " = " + vFacParcial);
+                vResultado = vResultado + (vPotParcial / vFacParcial);
+                MessageBox.Show("Resultado parcial: " + vResultado);
             }
-            //MessageBox.Show("Resultado de " + vNumM + " elevado a " + vNumN + " = " + vPotParcial);
-            //double vValorExpo = 1;
-            //double vValorFact = 1;
-            //int vValorPotencia = Potencia(vNumM);
-            //int vValorFactorial = Factorial(v)
-            //double vValorTemp = 1;
-            //double vValorFin = 0;
-            //for (int i = 1; i <= vNumN; i++)
-            //{
-              //  vValorExpo = vValorExpo * vNumM;
-                //vValorFact = vValorExpo * i;
-                //vValorTemp = vValorExpo / vValorFact;
-                //vValorFin = vValorFin + vValorTemp;
-                //MessageBox.Show("Resultado potencia: " + vNumM + "^" + i + " es igual a " + vValorExpo + "\n" + "Resultado factorial: " + i + "!" + " es igual a " + vValorFact);
-                //MessageBox.Show("Resultado del paso " + i + ": " + vValorTemp);
-                //MessageBox.Show("Resultado final: " + vValorFin);
-            }
+            MessageBox.Show("Resultado FINAL: " + vResultado);
+         }
 
-        }
-    }
+     }
+}
