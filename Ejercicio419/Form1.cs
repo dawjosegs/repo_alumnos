@@ -16,36 +16,87 @@ namespace Ejercicio419
         {
             InitializeComponent();
         }
-        double Potencia(double Base, double Intermedio)
+        // ***************************************************************
+        // ******* MODO ITERATIVO ****************************************
+        // ***************************************************************
+        double IPotencia(double Base, double Intermedio)  // Calculo de la Potencia
         {
             double vIntermedio = Base * Intermedio;
             return vIntermedio;
         }
 
-        double Factorial(double i, double Intermedio)
+        double IFactorial(double i, double Intermedio)  // Calculo del Factorial
         {
             Intermedio = Intermedio * i;  
             return Intermedio;
         }
 
+        // ***************************************************************
+        // ******* MODO RECURSIVO ****************************************
+        // ***************************************************************
+        double RCalculo(double Base, double Expo)  // Bucle para obtener el Cálculo
+        {
+            double vIntermedio = 0;
+            if (Expo == 0)
+            {
+                vIntermedio = 1;
+            } else
+            {
+                vIntermedio = (RPotencia(Base, Expo) / RFactorial(Expo)) + RCalculo(Base, Expo - 1);
+            }
+            return vIntermedio;
+        }
+
+        double RPotencia(double Base, double Expo)  // Bucle para obtener la Potencia
+        {
+            double vIntermedio = 1;
+            if (Expo == 0)
+            {
+                vIntermedio = 1;
+            } else
+            {
+                vIntermedio = Base * RPotencia(Base, Expo - 1);
+            }
+            return vIntermedio;
+        }
+
+        double RFactorial(double Expo)  // Bucle para obtener el Factorial
+        {
+            double vIntermedio = 1;
+            if (Expo == 0)
+            {
+                vIntermedio = 1;
+            } else
+            {
+                vIntermedio = Expo * RFactorial(Expo - 1);
+            }
+            return vIntermedio;
+        }
+        // ***************************************************************
+        // ******* ACCIONES DE BOTÓN *************************************
+        // ***************************************************************
         private void btnIterativa_Click(object sender, EventArgs e)
         {
             double vNumM = double.Parse(txtNumM.Text);
             double vNumN = double.Parse(txtNumN.Text);
             double vPotParcial = 1;
             double vFacParcial = 1;
-            double vResultado = 0;
+            double vResultado = 1;
             for (int i = 1; i <= vNumN; i++)
             {
-                vPotParcial = Potencia(vNumM, vPotParcial);
-                MessageBox.Show("Resultado de " + vNumM + " elevado a " + i + " = " + vPotParcial);
-                vFacParcial = Factorial(i, vFacParcial);
-                MessageBox.Show("Resultado del factorial de " + i + " = " + vFacParcial);
+                vPotParcial = IPotencia(vNumM, vPotParcial);
+                vFacParcial = IFactorial(i, vFacParcial);
                 vResultado = vResultado + (vPotParcial / vFacParcial);
-                MessageBox.Show("Resultado parcial: " + vResultado);
             }
-            MessageBox.Show("Resultado FINAL: " + vResultado);
+            MessageBox.Show("Resultado en Modo Iterativo: " + vResultado);
          }
 
-     }
-}
+        private void btnRecursiva_Click(object sender, EventArgs e)
+        {
+            double vNumM = double.Parse(txtNumM.Text);
+            double vNumN = double.Parse(txtNumN.Text);
+            double vResultado = RCalculo(vNumM, vNumN);
+            MessageBox.Show("Resultado en Modo Recursivo: " + vResultado);
+        }
+    }
+    }

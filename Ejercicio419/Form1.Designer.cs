@@ -98,6 +98,7 @@
             this.btnRecursiva.TabIndex = 6;
             this.btnRecursiva.Text = "Version Recursiva";
             this.btnRecursiva.UseVisualStyleBackColor = true;
+            this.btnRecursiva.Click += new System.EventHandler(this.btnRecursiva_Click);
             // 
             // Form1
             // 
